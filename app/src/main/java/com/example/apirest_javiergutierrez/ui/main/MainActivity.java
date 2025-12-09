@@ -20,36 +20,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
-
         setSupportActionBar(binding.toolbar);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
 
-
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.listFragment, R.id.searchFragment)
                 .build();
 
-
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
 
         BottomNavigationView bottomNavView = binding.bottomNavView;
         NavigationUI.setupWithNavController(bottomNavView, navController);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
-
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
