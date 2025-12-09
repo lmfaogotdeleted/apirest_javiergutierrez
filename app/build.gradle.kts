@@ -6,6 +6,11 @@ android {
     namespace = "com.example.apirest_javiergutierrez"
     compileSdk = 36
 
+    buildFeatures {
+        dataBinding = true
+    }
+
+
     defaultConfig {
         applicationId = "com.example.apirest_javiergutierrez"
         minSdk = 24
